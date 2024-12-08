@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h3 {
+            color: #555;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .endpoint {
+            background-color: #e2e2e2;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .request, .response {
+            margin-bottom: 15px;
+        }
+        .request code, .response code {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .error {
+            color: #f44336;
+            font-weight: bold;
+        }
+        .success {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>API Documentation</h1>
+
+    <div class="section">
+        <h2>1. Base URL</h2>
+        <p><strong>Base URL:</strong> <code>http://localhost:5000</code></p>
+    </div>
+
+    <div class="section">
+        <h2>2. Endpoints</h2>
+
+        <div class="endpoint">
+            <h3>2.1. Root Endpoint</h3>
+            <p><strong>URL:</strong> <code>/</code></p>
+            <p><strong>Method:</strong> <code>GET</code></p>
+            <p><strong>Description:</strong> This is a simple endpoint to check if the API is running.</p>
+            <div class="request">
+                <h4>Request Example:</h4>
+                <pre><code>GET /</code></pre>
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <pre><code>200 OK</code></pre>
+                <pre><code>API</code></pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h3>2.2. Upload File</h3>
+            <p><strong>URL:</strong> <code>/upload</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Description:</strong> Upload a CSV file to the server.</p>
+            <div class="request">
+                <h4>Request Example:</h4>
+                <pre><code>POST /upload</code></pre>
+                <pre><code>
+{
+  "file": "path_to_your_file.csv"
+}
+                </code></pre>
+            </div>
+            <div class="response">
+                <h4>Success Response:</h4>
+                <pre><code>200 OK</code></pre>
+                <pre><code>
+{
+    "message": "File uploaded successfully",
+    "file_path": "static/your_file.csv"
+}
+                </code></pre>
+            </div>
+            <div class="error">
+                <h4>Error Response:</h4>
+                <pre><code>400 Bad Request</code></pre>
+                <pre><code>
+{
+    "error": "No file selected"
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h3>2.3. Process Query</h3>
+            <p><strong>URL:</strong> <code>/process</code></p>
+            <p><strong>Method:</strong> <code>POST</code></p>
+            <p><strong>Description:</strong> Process a query using the uploaded CSV file and return the result.</p>
+            <div class="request">
+                <h4>Request Example:</h4>
+                <pre><code>POST /process</code></pre>
+                <pre><code>
+{
+    "query": "Your query here"
+}
+                </code></pre>
+            </div>
+            <div class="response">
+                <h4>Success Response:</h4>
+                <pre><code>200 OK</code></pre>
+                <pre><code>
+{
+    "success": true,
+    "response": "Processed query result"
+}
+                </code></pre>
+            </div>
+            <div class="error">
+                <h4>Error Response:</h4>
+                <pre><code>400 Bad Request</code></pre>
+                <pre><code>
+{
+    "error": "No file uploaded for processing"
+}
+                </code></pre>
+                <pre><code>500 Internal Server Error</code></pre>
+                <pre><code>
+{
+    "error": "Error processing file",
+    "details": "Detailed error message"
+}
+                </code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2>3. Common Errors</h2>
+        <div class="error">
+            <h4>3.1. No file part in the request</h4>
+            <pre><code>
+{
+    "error": "No file part in the request"
+}
+            </code></pre>
+        </div>
+        <div class="error">
+            <h4>3.2. File is not a CSV</h4>
+            <pre><code>
+{
+    "error": "File is not a CSV"
+}
+            </code></pre>
+        </div>
+        <div class="error">
+            <h4>3.3. Invalid query field</h4>
+            <pre><code>
+{
+    "error": "Invalid request payload. 'query' field is required"
+}
+            </code></pre>
+        </div>
+    </div>
+
+</body>
+</html>

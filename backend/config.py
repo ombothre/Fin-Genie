@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
 import os
 
+UPLOAD_PATH = 'static/'
+MODEL_NAME = "gemini-1.5-flash"
+
 load_dotenv()
 
 class Utils:
