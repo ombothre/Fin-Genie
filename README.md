@@ -26,7 +26,7 @@ This project implements an AI agent using **LangChain** and **Streamlit** that t
 
 3. Start the backend server using **Waitress**:  
    ```bash
-   waitress-serve --host localhost --port 8080 app:app
+   waitress-serve --host localhost --port 5000 app:app
    ```  
 
 ---
