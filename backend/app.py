@@ -76,5 +76,5 @@ def process_query():
         print("Error:", str(e))
         return jsonify({"Error": str(e)}), 400
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
