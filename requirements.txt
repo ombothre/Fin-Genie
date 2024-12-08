@@ -1,0 +1,21 @@
+# Backend framework
+Flask==2.3.3
+
+# Frontend framework
+streamlit==1.40.2
+
+# Data processing
+pandas==2.1.1
+numpy==1.26.0
+openpyxl==3.1.5  # For Excel file support
+
+# LangChain and LLM-related dependencies
+langchain
+# faiss-cpu==1.7.4  # Vector database for RAG
+
+# API interaction
+requests==2.31.0
+
+# Deployment and environment handling
+waitress
+python-dotenv==1.0.0  # For environment variable handling
