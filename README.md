@@ -12,6 +12,14 @@ This project implements an AI agent using **LangChain** and **Streamlit** that t
 
 ## Setup Instructions  
 
+### Envoirment File
+
+Create a `.env` file with
+
+```bash
+GOOGLE_API_KEY = ""
+```
+
 ### Backend  
 
 1. Navigate to the `backend` directory:  

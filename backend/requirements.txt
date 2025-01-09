@@ -11,6 +11,8 @@ openpyxl
 
 # LangChain and LLM-related dependencies
 langchain
+langchain-google-genai
+langchain-experimnetal
 
 # API interaction
 requests==2.31.0
